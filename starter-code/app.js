@@ -30,11 +30,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-
+  let multi = a * b;
+  let text = "The product of " + a + " and " + b + " is " + multi + ".";
+  return [multi, text];
 }
 
 // Here is the test for multiply(); uncomment it to run it
-// testMultiply(5,9);
+testMultiply(5,9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -54,6 +56,14 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
   let firstSum = sum(a, b)[0];
   let secondSum = sum(firstSum, c)[0];
   console.log(secondSum);
+
+  let sumText = a + " and " + b + " and " + c + " sum to " + secondSum + ".";
+  
+  let firstMulti = multiply(a, b)[0];
+  let secondMulti = multiply(firstMulti, c)[0];
+  let multiText = "The product of " + a + " and " + b + " and " + c + " is " + secondMulti + "."
+
+  return [secondSum, secondMulti, sumText, multiText];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -76,11 +86,20 @@ let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
 
+  let total = sumArr[0];
+
+
+  for (let i = 1; i < sumArr.length; i++){
+    total = sum(total, sumArr[i])[0];
+  }
+  let text4 = sumArr + " was passed in as an array of numbers, and " + total + " is their sum."
+  return [total, text4];
+  
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
